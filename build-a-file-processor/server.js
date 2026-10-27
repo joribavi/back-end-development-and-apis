@@ -105,6 +105,25 @@ const stdoutErrMessage = process.stderr.write("Hello from stderr\n");
 
 console.log(stdoutMessage);
 console.log(stdoutErrMessage);
+/*
+const readable = fs.createReadStream("assets/poem.txt", {encoding : "utf8"});
 
 
+    readable.on("data", (chunk)=> {
+    console.log(chunk);
+});
 
+readable.on("end", ()=>{
+   console.log("done reading");
+});
+
+
+const writable = fs.createWriteStream("assets/stream-output.txt");
+writable.write("First thing I write here\n");
+writable.write("Second thing I write here\n");
+writable.end();
+*/
+
+const readable = fs.createReadStream("assets/poem.txt"); 
+const writable = fs.createWriteStream("assets/stream-output.txt");
+readable.pipe(writable); //content from poem went to writable file
