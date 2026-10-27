@@ -85,3 +85,13 @@ const dirName  = path.dirname(filePath);
 const extName = path.extname(filePath);
 
 console.log("File Name", fileName, "forder Name", dirName, "file Ext", extName);
+
+console.log(path.join("assets","..","server.js"));
+console.log(path.resolve("assets","..","server.js"));
+
+console.log("Parsing Path");
+const parts = path.parse(filePath);
+console.log(parts);
+
+
+
