@@ -93,5 +93,18 @@ console.log("Parsing Path");
 const parts = path.parse(filePath);
 console.log(parts);
 
+console.log("process object");
+console.log(process.version);
+console.log(process.platform);
+console.log(process.env.NODE_ENV);
+
+console.log(process.argv[2]);
+
+const stdoutMessage = process.stdout.write("Hello from stdout\n");
+const stdoutErrMessage = process.stderr.write("Hello from stderr\n");
+
+console.log(stdoutMessage);
+console.log(stdoutErrMessage);
+
 
 
