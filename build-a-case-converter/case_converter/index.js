@@ -1,3 +1,5 @@
+const { __esModule } = require("@babel/generator");
+
 function getUpperCase(anyString){
     const upperCaseVersion = anyString.toUpperCase();
     return upperCaseVersion;
@@ -22,17 +24,21 @@ console.log(getSentenceCase("hello world"));
 console.log(getSentenceCase("Hello World"));
 console.log(getSentenceCase("HELLO WORLD")); 
 //code to correct bellow - Lesson 21 "Build a Case Converter"
-function getProperCase(myString){
-    const stringArray = myString.split(""); 
-    stringArray.forEach(word => {
-        getSentenceCase(word);        
-    });
-    return stringArray;
-};
 
-console.log(getProperCase("hello world"));
-console.log(getProperCase("HELLOW WORLD"));
-console.log(getProperCase("hELLOW wORLD"));
+function getProperCase(myString){
+    return myString
+        .trim()
+        .split(/\s+/)
+        .map(word => getSentenceCase(word))
+        .join(" ");
+}
+
+module.exports = {
+   getLowerCase,
+   getUpperCase,
+   getProperCase, 
+   getSentenceCase
+};
 
 
 
