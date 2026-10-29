@@ -1,0 +1,16 @@
+{
+  "name": "build-a-prime-number-checker-module",
+  "version": "1.0.0",
+  "description": "Module will check if a number is prime or not",
+  "keywords": [
+    "prime",
+    "numbers"
+  ],
+  "license": "MIT",
+  "author": "Jonathan Villegas",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  }
+}
