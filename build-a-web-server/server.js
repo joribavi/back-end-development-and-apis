@@ -1,23 +1,12 @@
 const http = require("http");
+const { join } = require("path");
 
 const server = http.createServer((request, response) => {
-const url = request.url === "/" ? "index.html" : request.url;
-  
   console.log(request.headers);
-  console.log(url);
-  response.end(url);
+  console.log(request.url);
+  const url = request.url === "/" ? "/index.html" : request.url;
+  const filePath = join("public", url);
+  response.end(filePath, "utf-8");
 });
-
-/*
-let url = "";
-
-if(request.url === "/") {
-  url = "index.html";
-  }
-  else {
-    url = request.url;
-  }
-    */
-
 
 server.listen(3001);
