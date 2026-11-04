@@ -11,8 +11,13 @@ const server = http.createServer((request, response) => {
   readFile(filePath, (error, file) => {
     if (error) {
       console.error(error);
-      response.end(error, "utf-8");
+      readFile("public/404.html", (error, file) => {
+        response.writeHead(404);
+        response.end(file, "utf-8");
+      });
+      return;
     }
+    response.writeHead(200);
     response.end(file, "utf-8");
   });
 });
